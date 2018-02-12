@@ -1,7 +1,7 @@
-var url1 = "http://cricapi.com/api/"
-var key = "CwtRTgGvnsWuMcmrUU6uchP4xT83";
-var currMat = [];
-var nextMat = [];
+let url1 = "http://cricapi.com/api/"
+let key = "CwtRTgGvnsWuMcmrUU6uchP4xT83";
+let currMat = [];
+let nextMat = [];
 $.ajax({
     url : url1 + "matches",
     data : {
@@ -11,10 +11,10 @@ $.ajax({
     dataType : "json"
 })
 .done(function (json) {
-    var temp = "";
-    var date = new Date();
-    var currDate = date.getFullYear() + "-" + check(date.getMonth() + 1) + "-" + check(date.getDate());
-    for(var i = 0; i < json['matches'].length; i++){
+    let temp = "";
+    let date = new Date();
+    let currDate = date.getFullYear() + "-" + check(date.getMonth() + 1) + "-" + check(date.getDate());
+    for(let i = 0; i < json['matches'].length; i++){
         if(json['matches'][i]['date'].startsWith(currDate)){
             if(json['matches'][i]['matchStarted']){
                 currMat.push(json['matches'][i]['unique_id']);
@@ -51,10 +51,10 @@ function check(x) {
     }
 }
 // function display(arr,arr1) {
-//     var count = 1;
-//     for(var i=0;i<arr.length;i++)
+//     let count = 1;
+//     for(let i=0;i<arr.length;i++)
 //     {
-//         for(var j=0;j<arr1.length;j++)
+//         for(let j=0;j<arr1.length;j++)
 //         {
 //             if(arr[i]==arr1[j])
 //             {
