@@ -1,0 +1,41 @@
+.collapsible{
+    border : none;
+    margin : 4px 0 0 0;
+    box-shadow: none;
+}
+#left{
+    padding : 0;
+}
+#right{
+    border-left: 1px solid rgb(221, 221, 221);
+    padding-left: 25px !important;
+}
+thead{
+    background-color: #4a4a4a;
+    color: #ffffff;
+}
+th{
+    border-radius:0;
+}
+nav{
+    z-index: 1;
+    position: fixed;
+    top:0;
+}
+.container{
+    margin-top: 60px;
+    padding-left: 10px;
+    margin-left: 0;
+    padding-right: 0;
+    margin-right: 0
+}
+.login{
+    border-bottom: 1px solid rgb(221, 221, 221);
+    padding: 20px 20px 0 20px;
+}
+input{
+    margin-bottom: 0;
+}
+#formdiv{
+    margin: 0 auto;
+}
