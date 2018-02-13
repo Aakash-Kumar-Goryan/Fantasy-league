@@ -21,7 +21,7 @@ $.ajax({
             }else{
                 nextMat.push(json['matches'][i]['unique_id']);
             }
-            }s
+            }
     }
     // display([1134034],currMat);
 })
