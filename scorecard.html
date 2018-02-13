@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel = "stylesheet" href = "style.css">
-    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
     <title>Score</title>
 </head>
 <body>
@@ -25,28 +25,26 @@
     <div class="row">
         <div class="col m4" id = "left">
             <ul class="collapsible" data-collapsible="accordion">
-              <li>
-                <div class = "collapsible-header" ><i class="material-icons">keyboard_arrow_right</i><span class="badge">150-4/20</span></div>
-                <div class="collapsible-body">
-                  <ul id = "team1">
-
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <div class="collapsible-header"><i class="material-icons">keyboard_arrow_right</i><span class="badge">150-4/20</span></div>
-                <div class="collapsible-body">
-                    <ul id = "team2">
-                    </ul>
-                </div>
-              </li>
+                <li>
+                    <div class = "collapsible-header" id = "team1-head"><i class="material-icons">keyboard_arrow_right</i><span class="badge">150-4/20</span></div>
+                    <div class="collapsible-body">
+                        <ul id = "team1">
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header" id = "team2-head"><i class="material-icons">keyboard_arrow_right</i><span class="badge">150-4/20</span></div>
+                    <div class="collapsible-body">
+                        <ul id = "team2">
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
         <div class="col m8" id = "right">
-          <p>Team 1 won the toss and chose to bowl</p>
-          <p>Team 2 won by 7 wickets</p>
-
-            <table class="bordered responsive-table highlight">
+            <p>Team 1 won the toss and chose to bowl</p>
+            <p>Team 2 won by 7 wickets</p>
+            <table class="bordered highlight">
                 <thead>
                 <th>Batsman</th>
                 <th>Dismissal</th>
@@ -60,8 +58,7 @@
 
                 </tbody>
             </table>
-
-            <table class="bordered responsive-table highlight">
+            <table class="bordered highlight">
                 <thead>
                 <th>Bowler</th>
                 <th>O</th>
@@ -73,7 +70,7 @@
 
                 </tbody>
             </table>
-          <!-- </div> -->
+
         </div>
     </div>
 </div>

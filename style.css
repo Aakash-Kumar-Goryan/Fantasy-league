@@ -33,9 +33,23 @@ nav{
     border-bottom: 1px solid rgb(221, 221, 221);
     padding: 20px 20px 0 20px;
 }
+.badge{
+    background-color: orange;
+    color: white !important;
+    border-radius: 3px;
+}
+.scorelink:hover{
+    background-color: teal;
+}
 input{
     margin-bottom: 0;
 }
 #formdiv{
     margin: 0 auto;
+}
+.tophead{
+    background-color: teal;
+    color: white !important;
+    padding: 15px;
+    border-radius: 5px;
 }
