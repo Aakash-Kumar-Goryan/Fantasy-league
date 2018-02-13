@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Aakash-Kumar-Goryan/BettingSite#readme",
   "dependencies": {
+    "cors": "^2.8.4",
     "express": "^4.16.2",
     "mongodb": "^3.0.2",
     "request": "^2.83.0"
