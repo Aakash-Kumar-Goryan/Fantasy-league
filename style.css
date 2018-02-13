@@ -5,17 +5,11 @@
 }
 #left{
     padding : 0;
-
 }
 #right{
     border-left: 1px solid rgb(221, 221, 221);
     padding-left: 25px !important;
 }
-/* .myContainer{
-  border: 2px solid rgb(221, 221, 221);
-  border-radius: 10px;
-  padding: 0 25px 25px 25px;
-} */
 thead{
     background-color: #4a4a4a;
     color: #ffffff;
@@ -26,8 +20,7 @@ th{
 nav{
     z-index: 1;
     position: fixed;
-    top: 0;
-    /*left: 0;*/
+    top:0;
 }
 .container{
     margin-top: 60px;
@@ -35,4 +28,14 @@ nav{
     margin-left: 0;
     padding-right: 0;
     margin-right: 0
+}
+.login{
+    border-bottom: 1px solid rgb(221, 221, 221);
+    padding: 20px 20px 0 20px;
+}
+input{
+    margin-bottom: 0;
+}
+#formdiv{
+    margin: 0 auto;
 }
