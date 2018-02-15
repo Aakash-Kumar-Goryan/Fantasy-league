@@ -6,8 +6,8 @@ const database = require('./database.js');
 
 let Schema = require('./schema.js');
 
-//const NextMatchesAPI = `http://cricapi.com/api/matches?apikey=CwtRTgGvnsWuMcmrUU6uchP4xT83`;
-const FantasyAPISummary = `http://cricapi.com/api/fantasySummary?apikey=CwtRTgGvnsWuMcmrUU6uchP4xT83&unique_id=1122283`;
+//const NextMatchesAPI = `http://cricapi.com/api/matches?apikey=NjAKUN2AH4TaHx5xqSVNScLAkk02`;
+const FantasyAPISummary = `http://cricapi.com/api/fantasySummary?apikey=NjAKUN2AH4TaHx5xqSVNScLAkk02&unique_id=`;
 
 app.use(cors());
 /*
@@ -30,11 +30,25 @@ app.use('/nextMatch',function (req,res) {
     })
 });
 
-app.use('/unique_id',function (req,res) {
-    request({url: FantasyAPISummary,type: 'get'},function (err,httpResponse,body) {
-        database.scorecard(JSON.parse(body));
+app.use('/unique_id/:id',function (req,res) {
+    Schema.matchData.findOne({unique_id: req.params.id},function (err,docs) {
+        if(docs == null)
+        {
+            request({url: FantasyAPISummary+req.params.id,type: 'get'},function (err,httpResponse,body) {
+                if(JSON.parse(body)['data']['winner_team']!=="")
+                {
+                    console.log('ji');
+                    database.storeScorecard(JSON.parse(body),req.params.id);
+                }
+                console.log('bye');
+                res.send(JSON.parse(body));
+            });
+        }
+        else
+        {
+            res.send(docs['data']);
+        }
     });
-    res.send('responded');
 });
 
 app.listen(8080,function () {

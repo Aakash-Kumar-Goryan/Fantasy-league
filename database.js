@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const dbname = 'betdata';
 const url = 'mongodb://localhost/'+dbname;
 const Schema = require('./schema.js');
+const request = require('request');
+const FantasyAPISummary = `http://cricapi.com/api/fantasySummary?apikey=NjAKUN2AH4TaHx5xqSVNScLAkk02&unique_id=1122283`;
 
 function connect() {
     mongoose.connect(url);
@@ -50,119 +52,18 @@ function matches(json) {
     }
 }
 
-function scorecard(data) {
-    console.log(data['data']['batting'][0]['scores'][0]['dismissal-by']['name']);
-    let fieldingArray = [];
-    let bowlingArray = [];
-    let battingArray = [];
-    let playerArray = [];
-    for(let i=0;i<data['data']['fielding'].length;i++)
-    {
-        let fieldingScoreArray = [];
-        for(let j=0;j<data['data']['fielding'][i]['scores'].length;j++)
-        {
-            let fieldingScore = {
-                name: data['data']['fielding'][i]['scores'][j]['name'],
-                runout: data['data']['fielding'][i]['scores'][j]['runout'],
-                stumped: data['data']['fielding'][i]['scores'][j]['stumped'],
-                bowled: data['data']['fielding'][i]['scores'][j]['bowled'],
-                lbw: data['data']['fielding'][i]['scores'][j]['lbw'],
-                catch: data['data']['fielding'][i]['scores'][j]['catch'],
-                pid: data['data']['fielding'][i]['scores'][j]['pid']
-            };
-            fieldingScoreArray.push(fieldingScore);
-        }
-        fieldingArray.push({
-            scores: fieldingScoreArray,
-            title: data['data']['fielding'][i]['title']
-        });
-    }
-    for(let i=0;i<data['data']['bowling'].length;i++)
-    {
-        let bowlingScoreArray = [];
-        for(let j=0;j<data['data']['bowling'][i]['scores'].length;j++)
-        {
-            let bowlingScore = {
-                sixes: data['data']['bowling'][i]['scores'][j]['6s'],
-                fours: data['data']['bowling'][i]['scores'][j]['4s'],
-                zeroes: data['data']['bowling'][i]['scores'][j]['0s'],
-                Econ: data['data']['bowling'][i]['scores'][j]['Econ'],
-                W: data['data']['bowling'][i]['scores'][j]['W'],
-                R: data['data']['bowling'][i]['scores'][j]['R'],
-                M: data['data']['bowling'][i]['scores'][j]['M'],
-                O: data['data']['bowling'][i]['scores'][j]['O'],
-                bowler: data['data']['bowling'][i]['scores'][j]['bowler'],
-                pid: data['data']['bowling'][i]['scores'][j]['pid'],
-            };
-            bowlingScoreArray.push(bowlingScore);
-        }
-        bowlingArray.push({
-            scores: bowlingScoreArray,
-            title: data['data']['bowling'][i]['title']
-        })
-    }
-    for(let i=0;i<data['data']['batting'].length;i++)
-    {
-        let battingScoreArray = [];
-        for(let j=0;j<data['data']['batting'][i]['scores'].length;j++)
-        {
-            console.log(data['data']['batting'][i]['scores'][j]['dismissal-by']['name']);
-            let battingScore = {
-                dismissalBy:  {
+function findScorecard(id) {
+    let result = {};
 
-                    name: data['data']['batting'][i]['scores'][j]['dismissal-by']['name'],
-                    pid: data['data']['batting'][i]['scores'][j]['dismissal-by']['pid']
-                },
-                dismissal: data['data']['batting'][i]['scores'][j]['dismissal'],
-                SR: data['data']['batting'][i]['scores'][j]['SR'],
-                sixes: data['data']['batting'][i]['scores'][j]['6s'],
-                fours: data['data']['batting'][i]['scores'][j]['4s'],
-                B: data['data']['batting'][i]['scores'][j]['B'],
-                R: data['data']['batting'][i]['scores'][j]['R'],
-                dismissalInfo: data['data']['batting'][i]['scores'][j]['dismissal-info'],
-                batsman: data['data']['batting'][i]['scores'][j]['batsman'],
-                pid: data['data']['batting'][i]['scores'][j]['pid']
-            };
-            battingScoreArray.push(battingScore);
-        }
-        battingArray.push({
-            scores: battingScoreArray,
-            title: data['data']['batting'][i]['title']
-        });
-    }
-    for(let i=0;i<data['data']['team'].length;i++)
-    {
-        let matchPlayerArray = [];
-        for(let j=0;j<data['data']['team'][i]['players'].length;j++)
-        {
-            let matchPlayers = {
-                name: data['data']['team'][i]['players'][j]['name'],
-                pid: data['data']['team'][i]['players'][j]['pid']
-            };
-            matchPlayerArray.push(matchPlayers);
-        }
-        playerArray.push({
-            players: matchPlayerArray,
-            name: data['data']['team'][i]['name']
-        });
-    }
-    let scoreDetails = {
-        fielding: fieldingArray,
-        bowling: bowlingArray,
-        batting: battingArray,
-        team: playerArray,
-        man_of_the_match: data['data']['man-of-the-match'],
-        toss_winner_team: data['data']['toss_winner_team'],
-        winner_team: data['data']['winner_team'],
-        matchStarted: data['data']['matchStarted']
-    };
-    let scoredata = Schema.matchData({
-        data: [scoreDetails],
-        type: data['type'],
-        dateTimeGMT: data['dateTimeGMT'],
-        pubDate: data['provider']['pubDate']
+    return result;
+}
+
+function storeScorecard(data,id) {
+    let scorecard = Schema.matchData({
+        unique_id: id,
+        data: data
     });
-    scoredata.save(function (err) {
+    scorecard.save(function (err,data) {
         if(err) throw err;
     })
 }
@@ -170,5 +71,5 @@ function scorecard(data) {
 module.exports = {
     connect,
     matches,
-    scorecard
+    storeScorecard,
 };
