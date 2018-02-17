@@ -2,8 +2,6 @@ const mongoose = require('mongoose');
 const dbname = 'betdata';
 const url = 'mongodb://localhost/'+dbname;
 const Schema = require('./schema.js');
-const request = require('request');
-const FantasyAPISummary = `http://cricapi.com/api/fantasySummary?apikey=NjAKUN2AH4TaHx5xqSVNScLAkk02&unique_id=1122283`;
 
 function connect() {
     mongoose.connect(url);
@@ -50,12 +48,6 @@ function matches(json) {
             }
         }
     }
-}
-
-function findScorecard(id) {
-    let result = {};
-
-    return result;
 }
 
 function storeScorecard(data,id) {

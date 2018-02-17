@@ -3,7 +3,7 @@ const app = express();
 const request = require('request');
 const cors = require("cors");
 const database = require('./database.js');
-
+app.set('port', process.env.PORT || 8080);
 let Schema = require('./schema.js');
 
 //const NextMatchesAPI = `http://cricapi.com/api/matches?apikey=NjAKUN2AH4TaHx5xqSVNScLAkk02`;
@@ -51,7 +51,7 @@ app.use('/unique_id/:id',function (req,res) {
     });
 });
 
-app.listen(8080,function () {
-    console.log('Server is running on 8080');
+let server = app.listen(app.get('port'), function() {
+    console.log('Express server listening on port ' + server.address().port);
     database.connect();
 });
