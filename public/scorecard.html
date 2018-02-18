@@ -23,17 +23,17 @@
 </nav>
 <div class="container">
     <div class="row">
-        <div class="col m4" id = "left">
+        <div class="col m3" id = "left">
             <ul class="collapsible" data-collapsible="accordion">
                 <li>
-                    <div class = "collapsible-header" id = "team1-head"><i class="material-icons">keyboard_arrow_right</i><span class="badge">150-4/20</span></div>
+                    <div class = "collapsible-header" id = "team1-head"><i class="material-icons" id="arr0">keyboard_arrow_right</i><span id="tmName0"></span><span class="badge" id = "score0"></span></div>
                     <div class="collapsible-body">
                         <ul id = "team1">
                         </ul>
                     </div>
                 </li>
                 <li>
-                    <div class="collapsible-header" id = "team2-head"><i class="material-icons">keyboard_arrow_right</i><span class="badge">150-4/20</span></div>
+                    <div class="collapsible-header" id = "team2-head"><i class="material-icons" id="arr1">keyboard_arrow_right</i><span id="tmName1"></span><span class="badge" id = "score1"></span></div>
                     <div class="collapsible-body">
                         <ul id = "team2">
                         </ul>
@@ -41,9 +41,9 @@
                 </li>
             </ul>
         </div>
-        <div class="col m8" id = "right">
-            <p>Team 1 won the toss and chose to bowl</p>
-            <p>Team 2 won by 7 wickets</p>
+        <div class="col m7 offset-m3" id = "center">
+            <p id="toss"></p>
+            <p id = "won"></p>
             <table class="bordered highlight">
                 <thead>
                 <th>Batsman</th>
@@ -71,6 +71,9 @@
                 </tbody>
             </table>
 
+        </div>
+        <div class="col m2" id="right">
+Hi
         </div>
     </div>
 </div>

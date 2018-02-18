@@ -3,12 +3,23 @@
     margin : 4px 0 0 0;
     box-shadow: none;
 }
-#left{
+#left, #right{
     padding : 0;
+    position: fixed;
+    z-index: 2;
+    margin: 0;
+    max-width: 320px;
+}
+#left p{
+    /*padding-left: 8px;*/
 }
 #right{
+    right:0;
+}
+#center{
     border-left: 1px solid rgb(221, 221, 221);
-    padding-left: 25px !important;
+    border-right: 1px solid rgb(221, 221, 221);
+    padding: 0 25px !important;
 }
 thead{
     background-color: #4a4a4a;
@@ -18,20 +29,18 @@ th{
     border-radius:0;
 }
 nav{
-    z-index: 1;
+    z-index: 3;
     position: fixed;
     top:0;
 }
 .container{
-    margin-top: 60px;
-    padding-left: 10px;
-    margin-left: 0;
-    padding-right: 0;
-    margin-right: 0
+    margin: 60px 0;
+    padding: 10px;
+    width: 100%;
 }
 .login{
     border-bottom: 1px solid rgb(221, 221, 221);
-    padding: 20px 20px 0 20px;
+    padding:0 20px 0 20px;
 }
 .badge{
     background-color: orange;
@@ -47,9 +56,25 @@ input{
 #formdiv{
     margin: 0 auto;
 }
+#left div{
+    margin: 0;
+}
 .tophead{
     background-color: teal;
     color: white !important;
     padding: 15px;
     border-radius: 5px;
+}
+.ani{
+    animation-name: rotate;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+}
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(90deg);
+    }
 }
