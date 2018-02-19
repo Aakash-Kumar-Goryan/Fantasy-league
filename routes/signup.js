@@ -2,6 +2,10 @@ let express = require('express');
 let router = express.Router();
 
 /* GET users listing. */
+router.get('/', function(req, res, next) {
+    res.send('../index', { title: 'Express' });
+});
+
 router.post('/', function(req, res, next) {
     req.check('Email','Invalid email address').isEmail();
     req.check('Password','Password is invalid').isLength({min: 8}).equals(req.body.ConfirmPassword);

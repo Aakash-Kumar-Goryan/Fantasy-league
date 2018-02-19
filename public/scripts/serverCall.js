@@ -16,27 +16,47 @@ let nexMat = $("#nexMat");
 //     });
 // });
 $.ajax({
-    url:"http://192.168.0.102:8080/currMatch",
+    url:"http://localhost:8080/matchList",
     type:"GET",
 }).done(function(json){
-    // console.log(JSON.parse(json));
-    displayLiv(JSON.parse(json));
+    console.log(json);
+    ListSieve(json);
+    displayLiv(currMat);
+    displayNex(nextMat);
 }).fail(function (xhr, status) {
     console.log(status);
 });
-$.ajax({
-    url:"http://192.168.0.102:8080/nextMatch",
-    type:"GET",
-}).done(function(json){
-    // console.log(JSON.parse(json));
-    displayNex(JSON.parse(json));
-}).fail(function (xhr, status) {
-    console.log(status);
-});
+
+let currMat = [];
+let nextMat = [];
+function ListSieve(json) {
+    let date = new Date();
+    let currDate = date.getFullYear() + "-" + check(date.getMonth() + 1) + "-" + check(date.getDate());
+    for(let i = 0; i < json['matches'].length; i++){
+        if(json['matches'][i]['date'].startsWith(currDate)){
+            if(json['matches'][i]['matchStarted']){
+                currMat.push(json['matches'][i]);
+            }else{
+                nextMat.push(json['matches'][i]);
+            }
+        }
+    }
+    console.log(currMat);
+    console.log(nextMat);
+}
+
+function check(x) {
+    if(x > 9){
+        return x;
+    }else{
+        return "0" + x;
+    }
+}
+
 function displayLiv(json) {
     let temp = "";
     $.each(json, function (index, value) {
-        temp += `<li ><div class = "collapsible-header"  id = ${value['unique_id']}>${value['team_1']} vs ${value['team_2']}<span class="badge nolink" style="margin-right: 15px">${value['type']}</span> <a href="scorecard.html"}><span class="badge right scorelink">Live Score</span></a> </div>
+        temp += `<li ><div class = "collapsible-header"  id = ${value['unique_id']} >${value['team-1']} vs ${value['team-2']}<span class="badge nolink" style="margin-right:15px">${value['type']}</span> <a href="scorecard.html"><span class="badge right scorelink">Live Score</span></a> </div>
                 <div class="collapsible-body">
                     <ul id = "team1">
                         <li>Winning Team</li>
@@ -45,11 +65,13 @@ function displayLiv(json) {
     });
     livMat.html("");
     livMat.html(temp);
-};
+}
+
 function displayNex(json) {
     let temp = "";
     $.each(json, function (index, value) {
-        temp += `<li ><div class = "collapsible-header"  id = ${value['unique_id']}>${value['team_1']} vs ${value['team_2']}<span class="badge nolink" style="margin-right: 15px">${value['type']}</span> </div>
+        console.log(value['unique_id']);
+        temp += `<li ><div class = "collapsible-header"  id = ${value['unique_id']}>${value['team-1']} vs ${value['team-2']}<span class="badge nolink" style="margin-right: 15px">${value['type']}</span> </div>
                 <div class="collapsible-body">
                     <ul id = "team1">
                         <li>Winning Team</li>
@@ -58,7 +80,7 @@ function displayNex(json) {
     });
     nexMat.html("");
     nexMat.html(temp);
-};
+}
     // temp = "";
     // json['Nextmatch'].each(function (index, value) {
     //     temp += `<li  id = ${value['unique_id']}><div class = "collapsible-header" >${value['team-1']} + " vs " + ${value['team-2']}</div>

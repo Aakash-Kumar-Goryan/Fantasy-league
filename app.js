@@ -32,7 +32,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/matchList',matchList);
 app.use('/unique_id',scoreCard);
-app.use('/signup',signup);
+app.use('/sign_up',signup);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
