@@ -4,10 +4,10 @@ let livMat = $("#livMat");
 let nexMat = $("#nexMat");
 // livMat.on("click", "a", function (event) {
 //     $.ajax({
-//         url:"http://192.168.0.103:8080",
-//         data:{
-//             unique_id:$(this).attr("id")
-//         },
+//         url:"http://localhost:8080",
+//         // data:{
+//         //     unique_id:$(this).attr("id")
+//         // },
 //         type:"GET"
 //     }).done(function (json) {
 //         // display.display(json);
@@ -56,7 +56,7 @@ function check(x) {
 function displayLiv(json) {
     let temp = "";
     $.each(json, function (index, value) {
-        temp += `<li ><div class = "collapsible-header"  id = ${value['unique_id']} >${value['team-1']} vs ${value['team-2']}<span class="badge nolink" style="margin-right:15px">${value['type']}</span> <a href="scorecard.html"><span class="badge right scorelink">Live Score</span></a> </div>
+        temp += `<li ><div class = "collapsible-header"  id = ${value['unique_id']} >${value['team-1']} vs ${value['team-2']}<span class="badge nolink" style="margin-right:15px">${value['type']}</span> <a href="scorecard.html?unique_id=${value['unique_id']}"><span class="badge right scorelink">Live Score</span></a> </div>
                 <div class="collapsible-body">
                     <ul id = "team1">
                         <li>Winning Team</li>
