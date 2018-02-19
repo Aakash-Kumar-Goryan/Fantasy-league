@@ -11,10 +11,11 @@ router.get('/:id', function(req, res, next) {
         if(docs == null)
         {
             request({url: FantasyAPISummary+req.params.id,type: 'get'},function (err,httpResponse,body) {
-                if(JSON.parse(body)['data']['winner_team']!=="")
-                {
-                    console.log('ji');
-                    storeScorecard(JSON.parse(body),req.params.id);
+                if('winner_team' in JSON.parse(body)['data']) {
+                    if (JSON.parse(body)['data']['winner_team'] !== "") {
+                        console.log('ji');
+                        storeScorecard(JSON.parse(body), req.params.id);
+                    }
                 }
                 console.log('bye');
                 res.send(JSON.parse(body));

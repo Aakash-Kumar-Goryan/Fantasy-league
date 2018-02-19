@@ -20,6 +20,8 @@ let data;
 //     console.log("oops " + status);
 // })
 // });
+// id = 1130746
+
     team1_head.on("click", function () {
     arr0.toggleClass("ani");
     if(arr1.hasClass("ani")){
@@ -43,10 +45,9 @@ team2_head.on("click", function () {
     bowler(nam1.text());
 });
 $.ajax({
-    url:"http://localhost:8080/unique_id/1130746",
+    url:"http://localhost:8080/unique_id/" + 1130746/*decodeURIComponent(window.location.search.split("=")[1])*/,
     type:"GET"
 }).done(function (json) {
-    console.log(json);
     team1_head.text(json['data']['team'][0]['name']);
     team2_head.text(json['data']['team'][1]['name']);
     data = json;
@@ -191,4 +192,3 @@ function bowler(tname){
     tabBowl.html("");
     tabBowl.html(temp);
 }
-display();
