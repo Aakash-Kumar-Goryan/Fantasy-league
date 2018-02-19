@@ -6,8 +6,22 @@ let matchDataSchema = new Schema({
     data: Object
 });
 
-let matchData = mongoose.model('matchDatas',matchDataSchema);
+let userSchema = new Schema({
+    FirstName: String,
+    LastName: String,
+    DateOfBirth: Date,
+    Country: Number,
+    MobileNumber: Number,
+    Gender: String,
+    Address: String,
+    UserName: String,
+    Email: String,
+    Password: String
+});
 
+let matchData = mongoose.model('matchDatas',matchDataSchema);
+let Users = mongoose.model('Users',userSchema);
 module.exports = {
-    matchData
+    matchData,
+    Users
 };

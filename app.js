@@ -1,15 +1,17 @@
 let express = require('express');
 let path = require('path');
-//let favicon = require('serve-favicon');
+let favicon = require('serve-favicon');
 let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
+let Validator = require('express-validator');
 const cors = require("cors");
 
 let index = require('./routes/index');
 let users = require('./routes/users');
 let matchList = require('./routes/matchlist');
 let scoreCard = require('./routes/scoreCard');
+let signup = require('./routes/signup');
 let app = express();
 
 app.use(cors());
@@ -22,6 +24,7 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(Validator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -29,6 +32,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/matchList',matchList);
 app.use('/unique_id',scoreCard);
+app.use('/sign_up',signup);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
