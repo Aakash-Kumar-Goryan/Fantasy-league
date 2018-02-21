@@ -21,10 +21,9 @@ let data;
 // })
 // });
 // id = 1130746
-
-    team1_head.on("click", function () {
+team1_head.on("click", function() {
     arr0.toggleClass("ani");
-    if(arr1.hasClass("ani")){
+    if(arr1.hasClass("ani")) {
         arr1.removeClass("ani");
     }
     if(team1_head.hasClass("active")){

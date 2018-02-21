@@ -10,7 +10,7 @@ let userSchema = new Schema({
     FirstName: String,
     LastName: String,
     DateOfBirth: Date,
-    Country: Number,
+    Country: String,
     MobileNumber: Number,
     Gender: String,
     Address: String,
