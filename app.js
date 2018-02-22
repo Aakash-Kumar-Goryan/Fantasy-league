@@ -8,7 +8,7 @@ let passport = require('passport');
 let session = require('express-session');
 let flash = require('connect-flash');
 let Validator = require('express-validator');
-const cors = require("cors");
+let cors = require("cors");
 
 let index = require('./routes/index');
 let users = require('./routes/users');
@@ -20,6 +20,7 @@ let Schema = require('./database/schema');
 let app = express();
 
 app.use(cors());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -31,7 +32,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(Validator());
 app.use(cookieParser());
-app.use(session({secret: 'dog is here',resave: false,saveUninitialized: flash}));
+app.use(session({secret: 'dog is here',resave: false,saveUninitialized: flash,
+    expires: new Date(Date.now() + (30 * 86400 * 1000))}));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());

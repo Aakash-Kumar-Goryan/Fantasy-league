@@ -7,6 +7,9 @@ let Schema = require('../database/schema');
 const FantasyAPISummary = `http://cricapi.com/api/fantasySummary?apikey=NjAKUN2AH4TaHx5xqSVNScLAkk02&unique_id=`;
 /* GET home page. */
 router.get('/:id', function(req, res, next) {
+    let x = req.session;
+    if(x!==null)
+        console.log("sd: " + JSON.stringify(x));
     Schema.matchData.findOne({unique_id: req.params.id},function (err,docs) {
         if(docs == null)
         {

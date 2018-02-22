@@ -15,7 +15,6 @@ let nexMat = $("#nexMat");
 //         console.log(status);
 //     });
 // });
-/*
 $.ajax({
     url:"http://localhost:8080/matchList",
     type:"GET",
@@ -27,7 +26,6 @@ $.ajax({
 }).fail(function (xhr, status) {
     console.log(status);
 });
-*/
 
 let currMat = [];
 let nextMat = [];

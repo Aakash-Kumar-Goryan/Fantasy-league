@@ -44,7 +44,7 @@ team2_head.on("click", function () {
     bowler(nam1.text());
 });
 $.ajax({
-    url:"http://localhost:8080/unique_id/" + 1130746/*decodeURIComponent(window.location.search.split("=")[1])*/,
+    url:"http://localhost:8080/unique_id/" + /*1130746*/decodeURIComponent(window.location.search.split("=")[1]),
     type:"GET"
 }).done(function (json) {
     team1_head.text(json['data']['team'][0]['name']);
