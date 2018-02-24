@@ -26,9 +26,11 @@ passport.use('local.signup',new LocalStrategy({
             return done(err);
         }
         if(user==null) {
+            console.log("Imail");
             return done(null,false,{ message: 'Incorrect Email' })
         }
         if(user.Password!==password) {
+            console.log("Ipass");
             return done(null,false,{ message: 'Wrong password' })
         }
         return done(null,user);

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/dashboard.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Dashboard</title>
+</head>
+<body>
+<div class="navbar-fixed">
+    <nav class="blue">
+
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">
+                Cricbet 24X7
+            </a>
+            <div class="header-search-wrapper hide-on-med-and-down">
+                <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Search Player" />
+            </div>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Menu<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a href="#"><i class="material-icons left">view_module</i>Services</a></li>
+                <li><a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse"><i class="material-icons">chat</i></a></li>
+                <li><a href="#" data-activates="slide-out" class=" left-sidebar-collapse btn-medium waves-effect waves-light"><i class="mdi mdi-menu"></i></a></li>
+            </ul>
+        </div>
+
+        <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light blue"><i class="mdi mdi-menu"></i></a>
+    </nav>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">Live Matches</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">Upcoming Matches</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">Payment Options</a></li>
+    </ul>
+</div>
+
+<div class="container">
+    <div class="carousel carousel-slider center" data-indicators="true">
+
+        <div class="carousel-item grey white-text" href="#one!">
+            <h2>Upcoming Matches</h2>
+            <p class="white-text">add background poster</p>
+            <div class="carousel-fixed-item center">
+                <a class="btn waves-effect white grey-text darken-text-2">Upcoming Matches</a>
+            </div>
+        </div>
+        <div class="carousel-item amber white-text" href="#two!">
+            <h2>Advertisement 1</h2>
+            <p class="white-text">advertisement poster</p>
+            <div class="carousel-fixed-item center">
+                <a class="btn waves-effect white grey-text darken-text-2">link to ad</a>
+            </div>
+        </div>
+        <div class="carousel-item green white-text" href="#three!">
+            <h2>Advertisement 2</h2>
+            <p class="white-text">advertisement poster</p>
+            <div class="carousel-fixed-item center">
+                <a class="btn waves-effect white grey-text darken-text-2">link to ad</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ul id="slide-out" class="side-nav leftside-navigation">
+    <li>
+        <div class="userView">
+            <div class="background">
+                <img src="http://materializecss.com/images/office.jpg">
+            </div>
+            <a href="#!user"><img class="circle" src="http://materializecss.com/images/yuna.jpg"></a>
+            <a href="#!name"><span class="white-text name">Anshuman</span></a>
+            <a href="#!email"><span class="white-text email">anshudiwaker20@gmail.com</span></a>
+        </div>
+    </li>
+    <li><a href="#!"><i class="material-icons">cloud</i>Betting History</a></li>
+    <li><a href="#!"><i class="material-icons">payment</i>Passbook</a></li>
+    <li><a href="#!"><i class="material-icons">settings</i>Settings</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons">account_box</i>Log Out</a></li>
+    <li>
+        <div class="divider"></div>
+    </li>
+</ul>
+
+
+<aside id="right-sidebar-nav">
+    <ul id="chat-out" class="side-nav rightside-navigation">
+
+        <li class="li-hover">
+            <a href="#" data-activates="chat-out" class="chat-close-collapse right">
+                <i class="material-icons">close</i>
+            </a>
+            <div id="right-search" class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">Search</label>
+                </div>
+            </div>
+        </li>
+
+        <li class="li-hover">
+            <ul class="chat-collapsible" data-collapsible="expandable">
+                <li>
+                    <div class="collapsible-header blue white-text active"><i class="mdi mdi-adjust"></i>Betting Updates</div>
+                    <div class="collapsible-body recent-activity">
+                        <div class="chat-out-list row">
+                            <div class="col s3"><i class="mdi mdi-cart mdi-24px"></i></div>
+                            <div class="col s9 chat-out-list-text">
+                                <a href="#">just now</a>
+                                <p>Rs 5000 won on IND Vs SA</p>
+                                <p>Rs 3000 lost on AFG Vs ZIM</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="collapsible-header teal white-text"><i class="mdi mdi-star"></i>Chats</div>
+                    <div class="collapsible-body">
+                        <div class="chat-out-list row">
+                            <div class="col s4"><img src="https://cdn.images.express.co.uk/img/dynamic/68/590x/MS-Dhoni-Net-Worth-India-Cricket-856990.jpg" alt="" class="circle responsive-img online-user valign profile-image">
+                            </div>
+                            <div class="col s8">
+                                <p>Anshuman</p>
+                                <p class="place">Los Angeles, CA</p>
+                            </div>
+                        </div>
+                        <div class="chat-out-list row">
+                            <div class="col s4"><img src="https://media.toofab.com/2017/05/26/baywatch-the-rock-810x610.jpg" alt="" class="circle responsive-img online-user valign profile-image">
+                            </div>
+                            <div class="col s8">
+                                <p>Pushpender</p>
+                                <p class="place">San Francisco, CA</p>
+                            </div>
+                        </div>
+                        <div class="chat-out-list row">
+                            <div class="col s4"><img src="https://vignette.wikia.nocookie.net/epicrapbattlesofhistory/images/4/4d/Goku_by_spongeboss-d35orzj.png/revision/latest?cb=20140210225834" alt="" class="circle responsive-img offline-user valign profile-image">
+                            </div>
+                            <div class="col s8">
+                                <p>Aakash</p>
+                                <p class="place">Cebu City, Philippines</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</aside>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col s4">
+            <div class="center promo promo-example">
+                <i class="material-icons">flash_on</i>
+                <p class="promo-caption">Title</p>
+                <p class="light center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, architecto, porro! Dolore minima dignissimos harum eveniet? Rem harum nemo quasi, adipisci nisi laudantium, eum omnis. Id impedit, facilis quibusdam ipsa!</p>
+            </div>
+        </div>
+        <div class="col s4">
+            <div class="center promo promo-example">
+                <i class="material-icons">group</i>
+                <p class="promo-caption">Title</p>
+                <p class="light center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum nesciunt quia assumenda eligendi dolorem quis, nam, nemo sequi sit voluptatibus veniam cum praesentium, nihil distinctio adipisci suscipit. Reprehenderit, aperiam, iste.</p>
+            </div>
+        </div>
+        <div class="col s4">
+            <div class="center promo promo-example">
+                <i class="material-icons">settings</i>
+                <p class="promo-caption">Title</p>
+                <p class="light center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit natus asperiores iure soluta molestias expedita, sint recusandae quae eaque. Facere molestias nihil atque sequi voluptatibus maiores, veritatis velit labore voluptatem.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer class="page-footer grey darken-1">
+    <div class="container">
+        <div class="row">
+            <div class="col l4 s12">
+                <h5 class="white-text"><i class="material-icons"> help</i>Help</h5>
+                <p class="grey-text text-lighten-4">Betting Tips</p>
+            </div>
+            <div class="col l4 s12">
+                <h5 class="white-text"><i class="material-icons">format_align_right</i>Form and Stats</h5>
+                <p class="grey-text text-lighten-4">Cricket stats</p>
+            </div>
+            <div class="col l4 s12">
+                <h5 class="white-text"><i class="material-icons">check_circle</i>Scores and Results</h5>
+                <p class="grey-text text-lighten-4">Results</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © All rights reserved.
+            <a class="grey-text text-lighten-4 right" href="#">AAP</a>
+        </div>
+    </div>
+    </div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src = "scripts/dashboard.js"></script>
+</body>
+
+</html>

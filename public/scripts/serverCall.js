@@ -1,4 +1,3 @@
-// import {display} from './script.js';
 
 let livMat = $("#livMat");
 let nexMat = $("#nexMat");
@@ -15,17 +14,17 @@ let nexMat = $("#nexMat");
 //         console.log(status);
 //     });
 // });
-$.ajax({
-    url:"http://localhost:8080/matchList",
-    type:"GET",
-}).done(function(json){
-    console.log(json);
-    ListSieve(json);
-    displayLiv(currMat);
-    displayNex(nextMat);
-}).fail(function (xhr, status) {
-    console.log(status);
-});
+// $.ajax({
+//     url:"http://localhost:8080/matchList",
+//     type:"GET",
+// }).done(function(json){
+//     console.log(json);
+//     ListSieve(json);
+//     displayLiv(currMat);
+//     displayNex(nextMat);
+// }).fail(function (xhr, status) {
+//     console.log(status);
+// });
 
 let currMat = [];
 let nextMat = [];
@@ -81,15 +80,3 @@ function displayNex(json) {
     nexMat.html("");
     nexMat.html(temp);
 }
-    // temp = "";
-    // json['Nextmatch'].each(function (index, value) {
-    //     temp += `<li  id = ${value['unique_id']}><div class = "collapsible-header" >${value['team-1']} + " vs " + ${value['team-2']}</div>
-    //             <div class="collapsible-body">
-    //                 <ul id = "team1">
-    //                     <li>Win Toss</li>
-    //                 </ul>
-    //             </div></li>`;
-    // });
-    // nexMat.html();
-    // nexMat.html(temp);
-// }
