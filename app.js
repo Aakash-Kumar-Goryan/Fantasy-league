@@ -48,7 +48,8 @@ app.use('/unique_id',scoreCard);
 app.use('/sign_up',signup);
 app.use('/login',login);
 
-app.get('/success', function(req, res){
+app.use('/success', function(req, res){
+    console.log("sent");
     res.send(req.user);
 });
 
