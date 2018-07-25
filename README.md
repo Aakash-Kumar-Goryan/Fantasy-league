@@ -1,1 +1,1 @@
-# BettingSite
+# Fantasy league
